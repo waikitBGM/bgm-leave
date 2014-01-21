@@ -8,8 +8,19 @@
   	<module>common</module>
   	<module>utilities</module>
   	<module>web</module>
+  	<module>masterdataservice</module>
   </modules>
+  <properties>
+  	<spring.framework.version>4.0.0.RELEASE</spring.framework.version>
+  </properties>
+  <dependencies>
   
+  	<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+  </dependencies>
   <build>
   	<pluginManagement>
             <plugins>
@@ -24,4 +35,11 @@
             </plugins>
         </pluginManagement>
   </build>
+  
+  <repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/libs-milestone</url>
+		</repository>
+	</repositories>
 </project>
