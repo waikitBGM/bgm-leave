@@ -15,7 +15,7 @@ public class LeaveType {
 	private int id;
 	private String name;
 	private String description;
-	private boolean isDeleted = true;
+	private boolean isDeleted = false;
 	
 	@Id
 	@GeneratedValue
@@ -43,7 +43,7 @@ public class LeaveType {
 		this.description = description;
 	}
 	
-	@Column(columnDefinition="TINYINT")
+	@Column(name="isDeleted", columnDefinition="TINYINT(1)") 
 	@Type(type="org.hibernate.type.NumericBooleanType")
 	public boolean isDeleted() {
 		return isDeleted;

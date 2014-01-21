@@ -4,7 +4,7 @@
     <!--Persistence Unit for Mysql database-->
     <persistence-unit name="masterDataMysql" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>org.sms.models.Post</class>
+        <class>com.beans.leaveapp.leavetype.model.LeaveType</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

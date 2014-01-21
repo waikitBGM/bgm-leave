@@ -11,7 +11,7 @@ import com.beans.leaveapp.leavetype.model.LeaveType;
 import com.beans.leaveapp.leavetype.repository.LeaveTypeRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:resources/spring/masterdata-context.xml")
+@ContextConfiguration(locations = "classpath:META-INF/masterdata-context.xml")
 public class LeaveTypeRepositoryTest {
 
     @Autowired
@@ -22,6 +22,7 @@ public class LeaveTypeRepositoryTest {
         LeaveType leaveType = new LeaveType();
         leaveType.setName("Test123");
         leaveType.setDescription("Test123Desc");
+        leaveType.setDeleted(false);
 
         leaveTypeRepository.save(leaveType);
         LeaveType leaveType1 = leaveTypeRepository.findOne(leaveType.getId());
