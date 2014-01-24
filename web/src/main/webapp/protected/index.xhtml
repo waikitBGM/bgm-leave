@@ -3,13 +3,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
-<h:head>
-</h:head>
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:pe="http://primefaces.org/ui/extensions" >
+	
 <h:body>
-<p:button outcome="#{authenticationBean.doLogout}" value="Logout">Logout</p:button> 
+<ui:composition template="/templates/mainlayout.xhtml">
 
-<H1>Testing 123</H1>
+<ui:define name="title">Beans Leave Application</ui:define>
 
+<ui:define name="content">
+	<h1>Welcome! </h1>
+</ui:define>
+
+</ui:composition>
 </h:body>
 </html>

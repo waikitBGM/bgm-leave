@@ -2,85 +2,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:showcase="http://primefaces.org/ui/extensions/showcase"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <ui:composition>
 
-<style type="text/css">
-  	.ui-button-text {
-         display:none;
-         height: 20px;
-  	}
-	#noti_Container {
-	    position:relative;
-	    border:0px solid white;
-	    width:16px;
-	    height:16px;
-	}
-	.noti_bubble {
-	    position:absolute;
-	    top: -6px;
-	    right:-6px;
-	    padding:1px 2px 1px 2px;
-	    background-color:red;
-	    color:white;
-	    font-weight:bold;
-	    font-family:Calibri;
-	    font-size:0.8em;
-	    border-radius:30px;
-	    box-shadow:1px 1px 1px gray;
-	}
-</style>
-
-	<!-- Footer -->
-	<div class="footerContent">
-	<h:form id="footerForm">
-		<h:panelGrid columns="6" styleClass="leftFooterImages col">
-            <h:link outcome="/pages/main.jsf">#{messages.label_home}</h:link>
-            <h:outputText value="| #{messages.label_language}:" />
-            <h:panelGroup>             
-              <h:commandLink id="switchToEnglish" action="#{localeBean.setSelectedLocale}">
-                <f:param name="locale" value="en" />
-                <h:graphicImage library="images" name="en.png" alt="Switch language to English" />
-              </h:commandLink>
-              <p:tooltip for="switchToEnglish">
-                <h:outputFormat value="#{messages.label_language_switch}">
-                  <f:param value="English" />
-                </h:outputFormat>
-              </p:tooltip>
-            </h:panelGroup>
-            <h:panelGroup>
-              <h:commandLink id="switchToBahasaMalaysia" action="#{localeBean.setSelectedLocale}">
-                <f:param name="locale" value="ms" />
-                <h:graphicImage library="images" name="ms.png" alt="Switch language to Bahasa Malaysia" />
-              </h:commandLink>
-              <p:tooltip for="switchToBahasaMalaysia">
-                <h:outputFormat value="#{messages.label_language_switch}">
-                  <f:param value="Bahasa Malaysia" />
-                </h:outputFormat>
-              </p:tooltip>
-            </h:panelGroup>
-            <h:outputText value=" | " />
-            <h:panelGroup id="panelcartMain">
-            <h:panelGroup id="panelcart" rendered="#{not empty request.remoteUser}">
-	         	<h:commandLink id="paymentcart" action="#{paymentBasketItemBean.openWindow}">
-	                <div id="noti_Container">
-	                	<h:graphicImage library="images" name="shopping-cart-icon.png" alt="Payment Cart" />
-	                	<h:panelGroup rendered="#{paymentBasketItemBean.countItems!='0'}">
-	                		<div class="noti_bubble"><h:outputText value="#{paymentBasketItemBean.countItems}" /></div>
-	                	</h:panelGroup>
-	                </div>
-              	</h:commandLink>
-			</h:panelGroup>
-			</h:panelGroup>
-          </h:panelGrid>
-        <h:panelGrid columns="1" styleClass="rightFooterImages col">
-          	<h:outputLink value="http://www.mesiniaga.com.my">
-            	<h:graphicImage library="images" name="mesiniaga_logo_76x16.jpg" alt="Mesiniaga" />
-         	</h:outputLink>
-        </h:panelGrid>
-    </h:form>
-    </div>
+links such as privacy and disclaimer here
 </ui:composition>
 </html>

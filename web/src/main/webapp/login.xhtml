@@ -10,53 +10,35 @@
 
 	<div id="header">
 		<div class="wrapper">
-			<h1><a href="/">Beans Group Leave Application</a></h1>
+		<h:panelGrid columns="2" cellpadding="0">
+	  <h:link outcome="/protected/index">
+	  	<p:graphicImage name="logo.png" library="images"></p:graphicImage>
+	  </h:link>
+	  <h1>Leave Application</h1>
+	</h:panelGrid>
+			
 		</div>
 	</div>
     <div id="container">
-    	<div id="content">
-    	<div class="wrapper">
-    	<c:if test="#{not empty request}">
-			<div class="errorblock">
-				Your login attempt was not successful, try again.<br /> Caused :
-				${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
-			</div>
-		</c:if>
-        <h:form  id="loginFormId" prependId="false">
-                <table class="login" style="margin-left: auto; margin-right: auto;">
-                	<tr>
-                		<td><p class="mtop0 mbottom025"><strong><label for="username">Username</label></strong></p>
-                        <p:inputText id="j_username" required="true" requiredMessage="Please enter username"></p:inputText>
-                        </td>
-                    </tr>
-                    <tr>
-                    	<td><p class="mtop0 mbottom025"><strong><label for="password">Password</label></strong></p>
-                    	<p:password id="j_password"  required="true" requiredMessage="Please enter password" name="inTxtPasswordNm"></p:password>
-                    	
-                    	</td>
-                    
-                    </tr>
-                    
-                    <tr>
-							<td>
-							<p class="mtop025 mbottom0 smalltxt"><a href="/app/wa/Password/forgot">Forgot password?</a>
-					</p></td> 
-						</tr>
-						<tr>
-							<td><p class="mtop025 mbottom0 smalltxt"><input type="checkbox" name="remember" id="rememberMe" tabindex="3"/> <label for="rememberMe">Remember me</label></p></td>
-						</tr>
-						
-						<tr>
-							<td style="padding-top: 10px;"><p:commandButton id="btnLoginId" value="Login" action="#{authenticationBean.doLogin}" ajax="false"></p:commandButton></td>
-						</tr>
-                </table>
-                
+    	<h:form id="loginForm" prependId="false">
+    	
+        	<p:growl id="growl" showDetail="true" life="3000" /> 
+            <p:panelGrid columns="2"> 
+            <f:facet name="header">Login</f:facet> 
+                <h:outputLabel for="j_username" value="Username: " />  
+                <h:inputText id="j_username" required="true" requiredMessage="Please enter username"/>  
+                <h:outputLabel for="j_password" value="Password: " />  
+                <h:inputSecret id="j_password" required="true" requiredMessage="Please enter password"/>  
+				 
+				
+				<h:outputLabel for="_spring_security_remember_me" value="Remember me: " />
+    			<h:selectBooleanCheckbox id="_spring_security_remember_me" />
+    			
+    			<f:facet name="footer"><h:commandButton id="loginButton" value="Login" action="#{authenticationBean.doLogin}" /></f:facet>
+    			 
+            </p:panelGrid>  
         </h:form>
-    </div>
-    </div>
-    </div>
-    <div>
-        <h:messages></h:messages>
+    	
     </div>
 </h:body>
 </html>

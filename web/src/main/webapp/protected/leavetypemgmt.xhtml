@@ -3,20 +3,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
-<h:head>
-  <title><ui:insert name="title">Leave Type Management</ui:insert></title>
-</h:head>
-
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:pe="http://primefaces.org/ui/extensions" >
+	
 <h:body>
+<ui:composition template="/templates/mainlayout.xhtml">
 
-<div id="header">
-    <ui:insert name="header">
-    	Header area.  See comments below this line in the source.
-    	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
-    	<!-- <ui:include src="header.xhtml"/> -->
-    </ui:insert>
-</div>
+<ui:define name="title">Leave Type Maintenance</ui:define>
+
+<ui:define name="content">
 		<h:form id="leaveTypeTableForm">
 
 		
@@ -24,27 +19,26 @@
                  selection="#{leaveTypeMgmtBean.selectedLeaveType}" selectionMode="single" >
           <p:ajax event="rowSelect" listener="#{leaveTypeMgmtBean.onRowSelect}" update=":leaveTypeDetailForm:display, :growl" oncomplete="PF('leaveTypeDialog').show()" />  
           
-          <p:column id="idHeader" rendered="false">
-            <f:facet name="header"> ID </f:facet>
-            <h:outputText value="#{leaveType0.id}" />
-          </p:column>
                     
           <p:column id="nameHeader">
             <f:facet name="header"> Name </f:facet>
             <h:outputText value="#{leaveType0.name}" />
           </p:column>
-          <p:column>
+          <p:column id="descHeader">
             <f:facet name="header"> Description </f:facet>
             <h:outputText value="#{leaveType0.description}" />
           </p:column>
         
-          <f:facet name="footer">
-                    <p:commandButton value="New Leave Type" oncomplete="PF('newLeaveTypeDialog').show()" icon="ui-icon-star" title="Creates new user"/>
-           </f:facet>
+        
         </p:dataTable>
         
-      </h:form>
+        <p:commandButton value="New Leave Type" oncomplete="PF('newLeaveTypeDialog').show()" icon="ui-icon-star" title="Creates new user"/>
+      </h:form>      
       
+      <p:growl id="growl" showDetail="true" life="1000"/> 
+  </ui:define>  
+  
+  <ui:define name="dialog">
       <p:dialog header="Leave Type Detail" widgetVar="leaveTypeDialog" resizable="false" id="leaveTypeDlg" >
                <h:form id="leaveTypeDetailForm">
                 <p:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto;">
@@ -91,19 +85,11 @@
 			</h:form>
 			</p:confirmDialog>
 
-<p:growl id="growl" showDetail="true" life="3000"/> 
+</ui:define>
 
 
-
-<div id="footer">
-  <ui:insert name="footer">
-    	Footer area.  See comments below this line in the source.
-    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
-		<!--<ui:include src="footer.xhtml"/>  -->
-  </ui:insert>
-</div>
 
 	
+</ui:composition>
 </h:body>
-
 </html>

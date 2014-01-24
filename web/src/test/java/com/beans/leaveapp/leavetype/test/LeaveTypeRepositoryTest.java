@@ -11,7 +11,7 @@ import com.beans.leaveapp.leavetype.model.LeaveType;
 import com.beans.leaveapp.leavetype.repository.LeaveTypeRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:META-INF/masterdata-context.xml")
+@ContextConfiguration(locations = "classpath:WEB-INF/spring/masterdata-context.xml")
 public class LeaveTypeRepositoryTest {
 
     @Autowired

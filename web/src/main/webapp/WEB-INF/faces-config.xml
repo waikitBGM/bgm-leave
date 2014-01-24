@@ -13,7 +13,9 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
    </application>
 
  <!-- configuration of navigation rules -->
- 
+ <lifecycle>
+ <phase-listener>com.beans.leaveapp.web.bean.LoginErrorPhaseListener</phase-listener>
+</lifecycle>
  
  <!-- configuration of managed beans -->
  <managed-bean>
@@ -24,6 +26,12 @@ http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
  		<property-name>leaveTypeService</property-name>
  		<value>#{leaveTypeService}</value>
  	</managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+ 	<managed-bean-name>authenticationBean</managed-bean-name>
+ 	<managed-bean-class>com.beans.leaveapp.web.bean.AuthenticationBean</managed-bean-class>
+ 	<managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
 
 </faces-config>
