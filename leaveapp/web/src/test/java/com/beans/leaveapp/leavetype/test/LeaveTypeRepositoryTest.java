@@ -29,4 +29,6 @@ public class LeaveTypeRepositoryTest {
         org.junit.Assert.assertNotNull(leaveType1);
         System.out.println(leaveType1.getName());
     }
+    
+    
 }

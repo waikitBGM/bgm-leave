@@ -37,7 +37,6 @@ public class LeaveTypeServiceImpl implements LeaveTypeService {
 	}
 
 	@Override
-	@Transactional
 	public List<LeaveType> findAll() {
 		List<LeaveType> resultList = (List<LeaveType>) leaveTypeRepository.findAll();
 		System.out.println("Size: " + resultList.size());
@@ -60,7 +59,6 @@ public class LeaveTypeServiceImpl implements LeaveTypeService {
 	}
 
 	@Override
-	@Transactional
 	public LeaveType findById(int id) throws LeaveTypeNotFound{
 		LeaveType leaveType = leaveTypeRepository.findOne(id);
 		

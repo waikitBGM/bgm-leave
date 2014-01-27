@@ -28,6 +28,6 @@
 	
 	<bean id="leaveType" class="com.beans.leaveapp.leavetype.model.LeaveType" />
 
-	<bean id="leaveTypeService" class="com.beans.leaveapp.leavetype.service.LeaveTypeServiceImpl">
+	<bean id="leaveTypeService" class="com.beans.leaveapp.leavetype.service.LeaveTypeServiceImpl" >
 	</bean>
 </beans>
