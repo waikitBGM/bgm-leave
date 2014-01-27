@@ -3,9 +3,6 @@ package com.beans.leaveapp.web.bean;
 import java.io.IOException;
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.RequestDispatcher;
@@ -13,8 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-@ManagedBean(name="authenticationBean")
-@SessionScoped
+import org.springframework.security.core.context.SecurityContextHolder;
+
+
 public class AuthenticationBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -29,8 +27,9 @@ public class AuthenticationBean implements Serializable{
 		
 	}
 	
-	public String doLogout() {
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	public String doLogout() throws IOException, ServletException{
+		SecurityContextHolder.clearContext();
 		return "/login.xhtml";
 	}
+	
 }
